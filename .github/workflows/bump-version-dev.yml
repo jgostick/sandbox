@@ -25,8 +25,7 @@ jobs:
 
     - name: Bump version (build)
       run: |
-        source .github/workflows/utils.sh
-        bump_version build $VERSION_FILE
+        bump-my-version bump patch
 
     - name: Commit files
       uses: stefanzweifel/git-auto-commit-action@v4
