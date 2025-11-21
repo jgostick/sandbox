@@ -22,12 +22,16 @@ jobs:
     - name: Install dependencies
       run: |
         pip install bump-my-version
-
-    - name: Bump version (build)
-      run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+
+    - name: Bump version (build)
+      shell: bash
+      run: |
         bump-my-version bump pre_n
+        echo "TAG_NAME=$(bump-my-version show current_version)" >> $GITHUB_ENV
+        export "TAG_NAME=$(bump-my-version show current_version)"
+        git push
         git push --tags
 
     - name: Commit files
