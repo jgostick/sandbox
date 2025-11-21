@@ -25,7 +25,7 @@ jobs:
 
     - name: Bump version (build)
       run: |
-        bump-my-version bump patch
+        bump-my-version bump pre_n
 
     - name: Commit files
       uses: stefanzweifel/git-auto-commit-action@v4
