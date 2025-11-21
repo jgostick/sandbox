@@ -29,4 +29,5 @@ jobs:
       shell: bash
       run: |
         bump-my-version bump pre_n
+        git push
         git push --tags
