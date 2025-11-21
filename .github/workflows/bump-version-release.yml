@@ -1,4 +1,4 @@
-name: Bump Version (Release)
+name: Bump Version (release)
 
 on:
   push:
@@ -23,13 +23,17 @@ jobs:
       run: |
         pip install bump-my-version
 
-    - name: Bump version (build)
+    - name: Bump version (patch)
       if: contains(github.event.head_commit.message, '#patch')
       run: |
         bump-my-version bump patch
+
+    - name: Bump version (minor)
       if: contains(github.event.head_commit.message, '#minor')
       run: |
         bump-my-version bump minor
+
+    - name: Bump version (major)
       if: contains(github.event.head_commit.message, '#major')
       run: |
         bump-my-version bump major
