@@ -29,9 +29,9 @@ jobs:
       shell: bash
       run: |
         bump-my-version bump pre_n
-        echo "TAG_NAME=$(bump-my-version show current_version)" >> $GITHUB_ENV
-        export "TAG_NAME=$(bump-my-version show current_version)"
-        git push
+        # echo "TAG_NAME=$(bump-my-version show current_version)" >> $GITHUB_ENV
+        # export "TAG_NAME=$(bump-my-version show current_version)"
+        # git push
         git push --tags
 
     - name: Commit files
