@@ -29,21 +29,18 @@ jobs:
       if: contains(github.event.head_commit.message, '#patch')
       run: |
         bump-my-version bump patch
-        git push
         git push --tags
 
     - name: Bump version (minor)
       if: contains(github.event.head_commit.message, '#minor')
       run: |
         bump-my-version bump minor
-        git push
         git push --tags
 
     - name: Bump version (major)
       if: contains(github.event.head_commit.message, '#major')
       run: |
         bump-my-version bump major
-        git push
         git push --tags
 
     - name: Create Pull Request to merge back release into dev
@@ -58,3 +55,10 @@ jobs:
         pr_draft: false                                   # Creates pull request as draft
         pr_allow_empty: true                              # Creates pull request even if there are no changes
         github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Commit files
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Bump version number (build part)
+        commit_author: Author <actions@github.com>
+        
