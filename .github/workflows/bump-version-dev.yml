@@ -25,6 +25,8 @@ jobs:
 
     - name: Bump version (build)
       run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         bump-my-version bump pre_n
 
     - name: Commit files
