@@ -28,12 +28,7 @@ jobs:
     - name: Bump version (build)
       shell: bash
       run: |
-        bump-my-version bump pre_n
+        bump-my-version bump pre_n --commit --message "Bump version number on dev"
+        git push origin HEAD:dev
         git push --tags
-
-    - name: Commit files
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Bump version number on dev
-        commit_author: Author <actions@github.com>
         
