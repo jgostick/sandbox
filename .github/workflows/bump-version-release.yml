@@ -29,29 +29,19 @@ jobs:
       if: contains(github.event.head_commit.message, '#patch')
       run: |
         bump-my-version bump patch
+        git push --tags
 
     - name: Bump version (minor)
       if: contains(github.event.head_commit.message, '#minor')
       run: |
         bump-my-version bump minor
+        git push --tags
 
     - name: Bump version (major)
       if: contains(github.event.head_commit.message, '#major')
       run: |
         bump-my-version bump major
-
-    - name: Apply Tag
-      run: |
-        echo "TAG_NAME=$(bump-my-version show current_version)" >> $GITHUB_ENV
-        export "TAG_NAME=$(bump-my-version show current_version)"
-        git push
         git push --tags
-
-    - name: Commit files
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Bump version number (build part)
-        commit_author: Author <actions@github.com>
 
     - name: Create Pull Request to merge back release into dev
       uses: repo-sync/pull-request@v2

@@ -30,9 +30,3 @@ jobs:
       run: |
         bump-my-version bump pre_n
         git push --tags
-
-    # - name: Commit files
-    #   uses: stefanzweifel/git-auto-commit-action@v4
-    #   with:
-    #     commit_message: Bump version number (build part)
-    #     commit_author: Author <actions@github.com>
