@@ -15,7 +15,7 @@ parse = """(?x)
     (?:
         -                             # dash separator for pre-release section
         (?P<pre_l>[a-zA-Z-]+)         # pre-release label
-        (?P<pre_n>0|[1-9]\\d*)        # pre-release version number
+        (?:0|[1-9]\\d*)               # pre-release version number
     )?                                # pre-release section is optional
 """
 serialize = [
