@@ -38,3 +38,8 @@ commit_args = ""
 [tool.bumpversion.parts.pre_l]
 values = ["dev", "rc", "final"]
 optional_value = "dev"
+
+[[tool.bumpversion.files]]
+filename = "/src/_version.py"
+search = "{current_version}"
+replace = "{new_version}"
