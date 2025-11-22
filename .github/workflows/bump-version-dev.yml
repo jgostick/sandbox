@@ -21,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install bump-my-version
+        pip install bump-my-version==1.2.4
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
 

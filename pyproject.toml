@@ -1,5 +1,5 @@
 [project]
-name = "sandbox"
+name = "bump-my-version-sandbox"
 
 version = "1.1.0-dev2"
 description = "Add your description here"
